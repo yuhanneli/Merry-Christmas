@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Image Gallery</title>
+  <style>
+    :root {
+      --fg1: #000000;
+      --fg2: #75507b;
+      --hg: #e9897c;
+      --bg1: #FFFFFF;
+      --bg2: #edb4e7;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap');
+
+    body {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg2);
+      font-family: 'Times New Roman', none;
+      color: var(--fg1);
+      font-size: 16px;
+      overflow-y: auto;
+    }
+
+    div.content {
+      background-color: var(--bg2);
+      min-height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 16vh;
+      box-sizing: border-box;
+      padding: 2vh;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 60vh;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    button {
+      background-color: var(--fg1);
+      color: var(--bg2);
+      text-align: center;
+      padding: 1vh;
+      margin: 0.5vh;
+      border: solid 0.5vh var(--fg1);
+      border-radius: 1vh;
+      font-size: 20px;
+      cursor: pointer;
+      width: 150px;
+    }
+
+    button:hover {
+      background-color: var(--fg1);
+      color: var(--bg2);
+      border: solid 0.5vh var(--hg);
+    }
+
+    /* Additional styles for the starting page */
+    #start-container {
+      text-align: center;
+      margin-top: 20vh;
+      background-color: var(--bg2);
+      padding: 2vh;
+      border-radius: 16vh;
+    }
+
+    #start-button {
+      background-color: var(--fg1);
+      color: var(--bg2);
+      text-align: center;
+      padding: 1vh;
+      margin: 0.5vh;
+      border: solid 0.5vh var(--fg1);
+      border-radius: 1vh;
+      font-size: 20px;
+      cursor: pointer;
+      width: 150px;
+    }
+
+    #start-button:hover {
+      background-color: var(--fg1);
+      color: var(--bg2);
+      border: solid 0.5vh var(--hg);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Starting page container -->
+  <div id="start-container">
+    <p>This was full of wonderful memories. Shall we go visit them?</p>
+    <button id="start-button" onclick="startGallery()">Start</button>
+  </div>
+
+  <!-- Gallery content container -->
+  <div class="content" style="display: none;">
+    <div id="image-container">
+      <p id="image-text">Click 'Next' to see the first image</p>
+      <img id="gallery-image" style="display: none;" alt="Gallery Image">
+    </div>
+
+    <div id="buttons-container">
+      <button id="prev-button" onclick="prevImage()">Previous</button>
+      <button id="next-button" onclick="nextImage()">Next</button>
+      <button id="final-button" style="display: none;" onclick="redirectToFinalPage()">Finish</button>
+    </div>
+  </div>
+
+  <script>
+    const images = [
+      { src: '/eli/first date (movie).jpg',text: 'July 21, 2023. This was our very first date ever. Though, we may not have taken a picture on this date, I still remember every moment vividly. The beautiful kiss we exchanged, The hugs we given each other. Everything.' },
+      { src: '/eli/IMG_20230716_183409.jpg', text:'Remember this? This was the very first food youve ever sent me. You were there when the world was against me. You were there when my father needed help. You were there without even knowing it.' },
+      { src: '/eli/intra.jpg', text: 'Ill never forget this day. Weve become so much closer. This was our first time going to a photobooth.' },
+      { src: '/eli/pampanga.jpg', text: 'This was the first time we had a sleep over. It was so fun!! meeting your dad was the scariest thing ever... but ngayon tropa na kami bahahahha' },
+      { src: '/eli/with oreo(2).jpg', text: 'Remember this? This was when you randomly spawned to my house when I was asleepT^T it was the cutest thing ever when you go here kahit hindi mo naman alam yung place, just to cheer me up. Thank you so much, honey.' },
+      { src: '/eli/our third date.jpg', text: 'Such a wonderful view. Oh no I am not talking about the background, I am talking about that pretty girl infront of me:33.. Anyways, This is when we went to Fort Santiago and went to go karaoke:DD It was so fun kahit pangit boses ko... This was alwaysbour third date' },
+      { src: '/eli/received_1022960625487492.jpeg', text: 'This was our first monthsary:DD We went to timezone and I punch punch sa playing machine and then we went to your condo to... Chill (wink wink)' },
+      { src: '/eli/received_1022899868962652.jpeg', text: 'Remember this? Sinamahan natin si ben sa concert or event sa school nya. Andaming batang galis pa ditoT^T' },
+      { src: '/eli/IMG_20231205_173322.jpg', text: 'Our 2nd monthsary!!! Happy monthsary bb, As I am writing this, I am currently at practice T^T I HAD SO MUCH FUN AND ATE SO MUCH!!! i love you^^ ' },
+      { src: '/eli/IMG_20231215_182259.jpg', text: 'Samgy date kasi tapos na hell week!!! I ate so much againT^T busog busog... and ito pala Christmas party mo. Big bear. I love you. You look so pretty pretty' }
+      // Add more images as needed
+    ];
+
+    let currentIndex = 0;
+    const imageTextElement = document.getElementById('image-text');
+    const imageElement = document.getElementById('gallery-image');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    const finalButton = document.getElementById('final-button');
+
+    function showImage(index) {
+      const currentImage = images[index];
+      imageTextElement.textContent = currentImage.text;
+      imageElement.src = currentImage.src;
+      imageElement.style.display = 'block';
+
+      if (currentIndex === 0) {
+        prevButton.style.display = 'none';
+      } else {
+        prevButton.style.display = 'block';
+      }
+
+      if (currentIndex === images.length - 1) {
+        nextButton.style.display = 'none';
+        finalButton.style.display = 'block';
+      } else {
+        nextButton.style.display = 'block';
+        finalButton.style.display = 'none';
+      }
+    }
+
+    function prevImage() {
+      currentIndex = Math.max(0, currentIndex - 1);
+      showImage(currentIndex);
+    }
+
+    function nextImage() {
+      currentIndex = Math.min(images.length - 1, currentIndex + 1);
+      showImage(currentIndex);
+    }
+
+    function redirectToFinalPage() {
+      // Redirect to a final page, replace 'finalpage.html' with the desired URL
+      window.location.href = 'page-4.html';
+    }
+
+    function startGallery() {
+      // Hide the starting page container
+      document.getElementById('start-container').style.display = 'none';
+
+      // Show the gallery content container
+      document.querySelector('.content').style.display = 'flex';
+
+      // Show the initial image
+      showImage(currentIndex);
+    }
+  </script>
+
+</body>
+
+</html>

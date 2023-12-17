@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>iloveyou</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    .content {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #bunnyheading {
+      font-size: 30px;
+      margin-bottom: 26px;
+    }
+
+    #bunnylabel {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="content">
+    <h1 id="bunnyheading">
+      MERRY CHRISTMAS HONEY!!!!!!! As A gift, I'd like to give this website to you. Just to express my feelings:PP it's not much pero yeah.. Hope u like it
+    </h1>
+    <form action="javascript:validate();">
+      <label for="fbunny" id="bunnylabel">
+        This is our first Christmas ever so I wanted to give you something memorable.
+        Please, Put the name you always call me. Your favorite nickname for me.
+        <h1>
+          
+        </h1>
+        HINT: IT'S AN ANIMAL😉😉
+        
+        <h1>
+          
+        </h1>
+        
+  <img src="images (7).jpeg" width=155" height="125"
+ 
+      </label><br>
+      <input type="text" id="fbunny" name="fbunny" value=""><br>
+      <input type="submit" value="ENTER">
+    </form>
+  </div>
+
+  <script>
+    function validate() {
+      var s = document.getElementById("fbunny").value;
+      if (s.toLowerCase() === "bun" || s.toLowerCase() === "bunny") {
+        console.log(s);
+        window.location.href = "page-2.html";
+      }
+    }
+  </script>
+</body>
+
+</html>
