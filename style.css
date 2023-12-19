@@ -15,7 +15,7 @@ body {
     background-color: var(--bg1);
     font-family: 'Times New Roman', sans-serif;
     color: var(--fg1);
-    font-size: 18px;
+    font-size: 18px; 
     overflow-y: auto;
 }
 
@@ -27,14 +27,13 @@ div.content {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border-radius: 16px; 
     box-sizing: border-box;
     padding: 2vh;
 }
 
 .content-inner {
     width: 90%;
-    max-width: 600px;
+    max-width: 600px;  
 }
 
 input[type=submit], input[type=text], a {
@@ -61,7 +60,7 @@ input[type=submit]:hover {
 
 input[type=text] {
     background-color: var(--fg2);
-    padding: 1.5vh;
+    padding: 1.5vh; 
     border: none;
     border-radius: 1vh;
     font-size: 36px; 
@@ -69,7 +68,7 @@ input[type=text] {
 
 a {
     background-color: var(--fg2);
-    padding: 1.5vh;
+    padding: 1.5vh; 
     border: 0.5vh solid var(--fg1);
     border-radius: 1vh;
     font-size: larger; 
@@ -84,7 +83,7 @@ a:hover {
 }
 
 p {
-    font-size: 16px; 
+    font-size: 16px;
 }
 
 h1 {
@@ -98,7 +97,7 @@ table {
 }
 
 tr {
-    min-height: 30%;
+    min-height: 30%; 
 }
 
 td {
