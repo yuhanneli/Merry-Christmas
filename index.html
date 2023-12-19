@@ -3,6 +3,7 @@
 
 <head>
   <title>iloveyou</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <style>
     body {
@@ -53,6 +54,33 @@
     input[type="submit"]:hover {
       background-color: #45a049;
     }
+
+    @media only screen and (max-width: 600px) {
+      .content {
+        max-width: 100%;
+        margin: 20px;
+      }
+
+      #bunnyheading {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      #bunnylabel {
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+
+      input[type="text"] {
+        padding: 8px;
+        margin-bottom: 16px;
+      }
+
+      input[type="submit"] {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 
@@ -75,8 +103,7 @@
           
         </h1>
         
-  <img src="images (7).jpeg" width=155" height="125"
- 
+        <img src="images (7).jpeg" width="155" height="125">
       </label><br>
       <input type="text" id="fbunny" name="fbunny" value=""><br>
       <input type="submit" value="ENTER">
