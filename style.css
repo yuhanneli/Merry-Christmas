@@ -111,3 +111,17 @@ td > a, td > a:hover {
     margin: 0;
     padding: 0.3vh;
 }
+
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    div.content {
+        border-radius: 0;
+    }
+
+    input[type=submit], input[type=text], a {
+        width: 80%;
+    }
+}
