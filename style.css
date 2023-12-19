@@ -15,7 +15,7 @@ body {
     background-color: var(--bg1);
     font-family: 'Times New Roman', sans-serif;
     color: var(--fg1);
-    font-size: 16px;
+    font-size: 18px;
     overflow-y: auto;
 }
 
@@ -27,20 +27,20 @@ div.content {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border-radius: 16vh;
+    border-radius: 16px; 
     box-sizing: border-box;
     padding: 2vh;
 }
 
 .content-inner {
     width: 90%;
-    max-width: 400px;
+    max-width: 600px;
 }
 
 input[type=submit], input[type=text], a {
     font-family: 'Gideon Roman', sans-serif;
     text-align: center;
-    width: 50%;
+    width: 70%; 
     margin: 1vh;
     color: var(--fg1);
 }
@@ -50,7 +50,7 @@ input[type=submit] {
     padding: 2vh;
     border: 0.5vh solid var(--fg1);
     border-radius: 1vh;
-    font-size: 32px;
+    font-size: 36px; 
 }
 
 input[type=submit]:hover {
@@ -61,18 +61,18 @@ input[type=submit]:hover {
 
 input[type=text] {
     background-color: var(--fg2);
-    padding: 1vh;
+    padding: 1.5vh;
     border: none;
     border-radius: 1vh;
-    font-size: 32px;
+    font-size: 36px; 
 }
 
 a {
     background-color: var(--fg2);
-    padding: 1vh;
+    padding: 1.5vh;
     border: 0.5vh solid var(--fg1);
     border-radius: 1vh;
-    font-size: large;
+    font-size: larger; 
     display: inline-block;
     text-align: center;
 }
@@ -84,11 +84,11 @@ a:hover {
 }
 
 p {
-    font-size: 14px;
+    font-size: 16px; 
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 36px; 
 }
 
 table {
@@ -98,18 +98,18 @@ table {
 }
 
 tr {
-    min-height: 25%;
+    min-height: 30%;
 }
 
 td {
-    min-width: 25%;
+    min-width: 30%; 
     text-align: center;
     color: transparent;
 }
 
 td > a, td > a:hover {
     margin: 0;
-    padding: 0.3vh;
+    padding: 0.5vh; 
 }
 
 @media only screen and (max-width: 600px) {
