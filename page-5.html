@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Page Example</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="content-inner">
+          <div id="startup">
+          <h1>The things I love so much about you</h1
+                <input type="submit" value="Start"
+                onclick="showNextPage('page1')">
+          </div>
+               
+            <div id="page1" style="display: none;">
+                <h1>Your Smile</h1>
+                <p>You have the prettiest smile. It just indirectly telling me na I'm loving you right. You've recently had your braces removed and I have never been seen someone with the prettiest smile. Your natural smile is makes my life complete.</p>
+                <input type="submit" value="Next" onclick="showNextPage('page2')">
+            </div>
+            <div id="page2" style="display: none;">
+                <h1>Your Eyes</h1>
+                <p>Your eyes hold countless mysteries. An ocean of them. Ah, Those pretty brown eyes. I could just stare at them forever. I once read a quote "The eyes indicate the antiquity of the soul." and you have the wisest soul I have ever seen.</p>
+                <input type="submit" value="Next" onclick="showNextPage('page3')">
+            </div>
+            <div id="page3" style="display: none;">
+                <h1>You. Entirely You.</h1>
+                <p>You are the best thing that ever  happen to me. I just love everything about you, and i like nothing than spending every hour of the day with you. You are my soulmate, Eli. My partner, My bestfriend, and My lover. You make me so happy and alive. You are the reason I wake up everyday, The reason I don't wanna give up. I just love you so much. You are my every choice, My every decision. So, My most favorite thing about you, Is you.</p>
+                <input type="submit" value="Next" onclick="showNextPage('page4')">
+            </div>
+            <div id="page4" style="display: none;">
+                <h1>That's all for this Christmas gift^^ It's not really much, but I'll make you a better one someday. Hoped you like it, Mahal!!! MERRY CHRISTMAS I LOVE YOU I LOVE YOU!!!
+                </h1>
+                <p>btw you can click the button to restart the whole thing^^</p>
+                <input type="submit" value="RESTART PAGE" onclick="goToIndex()">
+            </div>
+           </div>
+           
+        </div>
+    </div
+
+    <script>
+        let currentPage = 1;
+
+        function showNextPage(pageId) {
+            document.getElementById(`page${currentPage}`).style.display = 'none';
+            currentPage++;
+            document.getElementById(pageId).style.display = 'block';
+
+            if (currentPage > 5) {
+                window.location.href = 'index.html'; // Redirect to index.html on the last page
+            }
+
+            changeButtonColor(); // Change button color on each page transition
+        }
+
+        function goToIndex() {
+            window.location.href = 'index.html'; // Redirect to index.html
+        }
+
+        function changeButtonColor() {
+            // Set the background color and border color of all buttons to bright pink
+            const buttons = document.querySelectorAll('input[type=submit]');
+            buttons.forEach(button => {
+                button.style.backgroundColor = '#FF69B4'; // Bright pink
+                button.style.borderColor = '#FF69B4'; // Bright pink
+            });
+        }
+    </script>
+</body>
+</html>
