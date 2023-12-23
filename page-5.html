@@ -46,18 +46,17 @@
             document.getElementById(pageId).style.display = 'block';
 
             if (currentPage > 5) {
-                window.location.href = 'index.html'; // Redirect to index.html on the last page
-            }
+                window.location.href = 'page-6.html';
 
-            changeButtonColor(); // Change button color on each page transition
+            changeButtonColor(); 
         }
 
         function goToIndex() {
-            window.location.href = 'index.html'; // Redirect to index.html
+            window.location.href = 'page-6.html';
         }
 
         function changeButtonColor() {
-            // Set the background color and border color of all buttons to bright pink
+    
             const buttons = document.querySelectorAll('input[type=submit]');
             buttons.forEach(button => {
                 button.style.backgroundColor = '#FF69B4'; // Bright pink
